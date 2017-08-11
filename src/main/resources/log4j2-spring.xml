@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 设置log4j2的自身log级别为warn -->
+<!-- OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+<configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <property name="logPattern">[phj-service-back] [%d{yyyy-MM-dd HH:mm:ss:SSS}] %p 类%c:%L行 - %m%n</property>
+        <property name="basePath">/alidata/puhuijia/phj-service-back-logs</property>
+        <property name="allLogFileName">${basePath}/phj-service-back.log</property>
+        <property name="allLogFilePattern">${basePath}/$${date:yyyy-MM}/phj-service-back-%d{yyyy-MM-dd}-%i.log</property>
+        <property name="infoLogFileName">${basePath}/phj-service-back-info.log</property>
+        <property name="infoLogFilePattern">${basePath}/$${date:yyyy-MM}/phj-service-back-info-%d{yyyy-MM-dd}-%i.log</property>
+        <property name="warnLogFileName">${basePath}/phj-service-back-warn.log</property>
+        <property name="warnLogFilePattern">${basePath}/$${date:yyyy-MM}/phj-service-back-warn-%d{yyyy-MM-dd}-%i.log</property>
+        <property name="errorLogFileName">${basePath}/phj-service-back-error.log</property>
+        <property name="errorLogFilePattern">${basePath}/$${date:yyyy-MM}/phj-service-back-error-%d{yyyy-MM-dd}-%i.log</property>
+        <!-- 日志切割的最小单位 -->
+        <property name="everyFileSize">100M</property>
+    </Properties>
+    <appenders>
+        <console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${logPattern}"/>
+        </console>
+
+        <RollingFile name="RollingFileAll" fileName="${allLogFileName}" filePattern="${allLogFilePattern}">
+            <PatternLayout pattern="${logPattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${everyFileSize}"/>
+            </Policies>
+        </RollingFile>
+
+        <!--<RollingFile name="RollingFileInfo" fileName="${infoLogFileName}" filePattern="${infoLogFilePattern}">
+            &lt;!&ndash;控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）&ndash;&gt;
+            <Filters>
+                <ThresholdFilter level="INFO"/>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="${logPattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${everyFileSize}"/>
+            </Policies>
+        </RollingFile>-->
+
+        <RollingFile name="RollingFileWarn" fileName="${warnLogFileName}" filePattern="${warnLogFilePattern}">
+            <Filters>
+                <ThresholdFilter level="WARN"/>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="${logPattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${everyFileSize}"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="RollingFileError" fileName="${errorLogFileName}" filePattern="${errorLogFilePattern}">
+            <ThresholdFilter level="ERROR"/>
+            <PatternLayout pattern="${logPattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${everyFileSize}"/>
+            </Policies>
+        </RollingFile>
+
+    </appenders>
+
+    <loggers>
+        <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
+        <logger name="org.springframework" level="INFO"/>
+        <logger name="org.mybatis" level="INFO"/>
+        <logger name="com.baomidou" level="INFO"/>
+        <logger name="druid.sql" level="INFO"/>
+        <logger name="org.apache" level="INFO"/>
+        <logger name="org.hibernate" level="INFO"/>
+        <logger name="org.jboss" level="INFO"/>
+        <logger name="org.springframework.security" level="INFO"/>
+        <logger name="org.I0Itec.zkclient" level="INFO"/>
+        <logger name="org.apache.zookeeper" level="INFO"/>
+        <logger name="com.alibaba.dubbo" level="WARN"/>
+        <logger name="com.puhuijia" level="INFO"/>
+
+        <root level="all">
+            <appender-ref ref="Console"/>
+            <!--<appender-ref ref="RollingFileInfo"/>-->
+            <appender-ref ref="RollingFileWarn"/>
+            <appender-ref ref="RollingFileError"/>
+            <appender-ref ref="RollingFileAll"/>
+        </root>
+    </loggers>
+
+</configuration>

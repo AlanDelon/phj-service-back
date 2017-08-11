@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.puhuijia.back.dao.borrow.mapper.BorrowInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.puhuijia.commons.borrow.model.BorrowInfo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="BORROW_NAME" property="borrowName" jdbcType="VARCHAR" />
+    <result column="BORROW_USER" property="borrowUser" jdbcType="INTEGER" />
+    <result column="BORROW_LOG_ID" property="borrowLogId" jdbcType="INTEGER" />
+    <result column="BORROW_DURATION" property="borrowDuration" jdbcType="INTEGER" />
+    <result column="START_LINE" property="startLine" jdbcType="VARCHAR" />
+    <result column="RATE_TYPE" property="rateType" jdbcType="VARCHAR" />
+    <result column="BORROW_MONEY" property="borrowMoney" jdbcType="DECIMAL" />
+    <result column="is_borrow_money" property="isBorrowMoney" jdbcType="VARCHAR" />
+    <result column="BORROW_INTEREST" property="borrowInterest" jdbcType="DECIMAL" />
+    <result column="BORROW_INTEREST_RATE" property="borrowInterestRate" jdbcType="DECIMAL" />
+    <result column="promotion_expect_annual_rate" property="promotionExpectAnnualRate" jdbcType="DECIMAL" />
+    <result column="REPAYMENT_MONEY" property="repaymentMoney" jdbcType="DECIMAL" />
+    <result column="REPAYMENT_INTEREST" property="repaymentInterest" jdbcType="DECIMAL" />
+    <result column="REPAYMENT_TYPE" property="repaymentType" jdbcType="VARCHAR" />
+    <result column="BORROW_STATUS" property="borrowStatus" jdbcType="VARCHAR" />
+    <result column="BORROW_DAY" property="borrowDay" jdbcType="INTEGER" />
+    <result column="TRANSFER_OUT" property="transferOut" jdbcType="DECIMAL" />
+    <result column="TRANSFER_BACK" property="transferBack" jdbcType="DECIMAL" />
+    <result column="TRANSFER_TOTAL" property="transferTotal" jdbcType="DECIMAL" />
+    <result column="PER_TRANSFER" property="perTransfer" jdbcType="DECIMAL" />
+    <result column="ADD_TIME" property="addTime" jdbcType="VARCHAR" />
+    <result column="DEADLINE" property="deadline" jdbcType="VARCHAR" />
+    <result column="ADD_IP" property="addIp" jdbcType="VARCHAR" />
+    <result column="DEAL_USER" property="dealUser" jdbcType="INTEGER" />
+    <result column="DEAL_TIME" property="dealTime" jdbcType="VARCHAR" />
+    <result column="DEAL_INFO" property="dealInfo" jdbcType="VARCHAR" />
+    <result column="BORROW_INFO" property="borrowInfo" jdbcType="VARCHAR" />
+    <result column="ENSURE_DEPARTMENT" property="ensureDepartment" jdbcType="VARCHAR" />
+    <result column="is_ensure" property="isEnsure" jdbcType="VARCHAR" />
+    <result column="UPDATA" property="updata" jdbcType="VARCHAR" />
+    <result column="PROGRESS" property="progress" jdbcType="INTEGER" />
+    <result column="TOTAL" property="total" jdbcType="INTEGER" />
+    <result column="IS_SHOW" property="isShow" jdbcType="VARCHAR" />
+    <result column="MIN_MONTH" property="minMonth" jdbcType="INTEGER" />
+    <result column="REWARD_RATE" property="rewardRate" jdbcType="DECIMAL" />
+    <result column="INCREASE_RATE" property="increaseRate" jdbcType="DECIMAL" />
+    <result column="BORROW_FEE" property="borrowFee" jdbcType="DECIMAL" />
+    <result column="BORROW_MIN" property="borrowMin" jdbcType="INTEGER" />
+    <result column="BORROW_MAX" property="borrowMax" jdbcType="INTEGER" />
+    <result column="is_borrow_max" property="isBorrowMax" jdbcType="VARCHAR" />
+    <result column="DANBAO" property="danbao" jdbcType="INTEGER" />
+    <result column="IS_TUIJIAN" property="isTuijian" jdbcType="INTEGER" />
+    <result column="BORROW_TYPE" property="borrowType" jdbcType="VARCHAR" />
+    <result column="B_IMG" property="bImg" jdbcType="VARCHAR" />
+    <result column="COLLECT_DAY" property="collectDay" jdbcType="INTEGER" />
+    <result column="VOUCH_MONEY" property="vouchMoney" jdbcType="DECIMAL" />
+    <result column="IS_JIJIN" property="isJijin" jdbcType="INTEGER" />
+    <result column="IS_AUTO" property="isAuto" jdbcType="VARCHAR" />
+    <result column="IS_QIYE" property="isQiye" jdbcType="INTEGER" />
+    <result column="LICENSE" property="license" jdbcType="VARCHAR" />
+    <result column="LEGALPERSON" property="legalperson" jdbcType="VARCHAR" />
+    <result column="HETONG_IMG" property="hetongImg" jdbcType="VARCHAR" />
+    <result column="IS_GONGZHENG" property="isGongzheng" jdbcType="INTEGER" />
+    <result column="ONLINE_TIME" property="onlineTime" jdbcType="VARCHAR" />
+
+    <result column="ON_OFF" property="onOff" jdbcType="INTEGER" />
+    <result column="TBORROW_TYPE" property="tborrowType" jdbcType="INTEGER" />
+    <result column="IS_XINSHOU" property="isXinshou" jdbcType="INTEGER" />
+    <result column="BIANHAO" property="bianhao" jdbcType="VARCHAR" />
+    <result column="MIN_INVEST" property="minInvest" jdbcType="DECIMAL" />
+    <result column="is_min_invest" property="isMinInvest" jdbcType="VARCHAR" />
+    <result column="IS_HONGBAO" property="isHongbao" jdbcType="INTEGER" />
+    <result column="MAX_HONGBAO" property="maxHongbao" jdbcType="DECIMAL" />
+    <result column="CONTRACT_NO" property="contractNo" jdbcType="VARCHAR" />
+    <result column="REVIEW_STATUS" property="reviewStatus" jdbcType="VARCHAR" />
+    <result column="CREATE_USER" property="createUser" jdbcType="INTEGER" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="VARCHAR" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="VARCHAR" />
+    <result column="UPDATE_USER" property="updateUser" jdbcType="INTEGER" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="AUTOPAY" property="autopay" jdbcType="INTEGER" />
+    <result column="EXPIRED_INTEREST" property="expiredInterest" jdbcType="DECIMAL" />
+    <result column="FINISH_DATE" property="finishDate" jdbcType="VARCHAR" />
+    <result column="IS_CHANGE" property="isChange" jdbcType="VARCHAR" />
+    <result column="CHANGE_DAY" property="changeDay" jdbcType="INTEGER" />
+    <result column="DRM" property="drm" jdbcType="VARCHAR" />
+    <result column="CHANGE_RATE" property="changeRate" jdbcType="DECIMAL" />
+    <result column="HOUSING_TYPE" property="housingType" jdbcType="VARCHAR" />
+    <result column="HOUSING_VALUE" property="housingValue" jdbcType="DECIMAL" />
+    <result column="PRIVINCE_CODE" property="privinceCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="HOUSE_AGE" property="houseAge" jdbcType="INTEGER" />
+    <result column="Mortgage_rate" property="mortgageRate" jdbcType="VARCHAR" />
+    <result column="is_special" property="isSpecial" jdbcType="VARCHAR" />
+    <result column="borrow_contractno" property="borrowContractno" jdbcType="VARCHAR" />
+    <result column="borrow_dept_realname" property="borrowDeptRealname" jdbcType="VARCHAR" />
+    <result column="borrow_dept_idcard" property="borrowDeptIdcard" jdbcType="VARCHAR" />
+    <result column="IS_APP" property="isApp" jdbcType="CHAR" />
+    <result column="BORROW_DESC" property="borrowDesc" jdbcType="VARCHAR" />
+    <result column="fullscale_time" property="fullscaleTime" jdbcType="VARCHAR" />
+    <result column="items_id" property="itemsId" jdbcType="INTEGER" />
+    <result column="is_pattern" property="isPattern" jdbcType="CHAR" />
+    <result column="borrow_pool_type" property="borrowPoolType" jdbcType="CHAR" />
+    <result column="is_risk_grade" property="isRiskGrade" jdbcType="CHAR" />
+    <result column="risk_grade" property="riskGrade" jdbcType="VARCHAR" />
+    <result column="risk_explain" property="riskExplain" jdbcType="VARCHAR" />
+    <result column="borrow_origin" property="borrowOrigin" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.puhuijia.commons.borrow.model.BorrowInfo" extends="BaseResultMap" >
+    <result column="APPROVAL" property="approval" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, BORROW_NAME, BORROW_USER, BORROW_LOG_ID, BORROW_DURATION, START_LINE, RATE_TYPE, 
+    BORROW_MONEY, is_borrow_money, BORROW_INTEREST, BORROW_INTEREST_RATE, promotion_expect_annual_rate, 
+    REPAYMENT_MONEY, REPAYMENT_INTEREST, REPAYMENT_TYPE, BORROW_STATUS, BORROW_DAY, TRANSFER_OUT, 
+    TRANSFER_BACK, TRANSFER_TOTAL, PER_TRANSFER, ADD_TIME, DEADLINE, ADD_IP, DEAL_USER, 
+    DEAL_TIME, DEAL_INFO, BORROW_INFO, ENSURE_DEPARTMENT, is_ensure, UPDATA, PROGRESS, 
+    TOTAL, IS_SHOW, MIN_MONTH, REWARD_RATE, INCREASE_RATE, BORROW_FEE, BORROW_MIN, BORROW_MAX, 
+    is_borrow_max, DANBAO, IS_TUIJIAN, BORROW_TYPE, B_IMG, COLLECT_DAY, VOUCH_MONEY, 
+    IS_JIJIN, IS_AUTO, IS_QIYE, LICENSE, LEGALPERSON, HETONG_IMG, IS_GONGZHENG, ONLINE_TIME, 
+    ON_OFF, TBORROW_TYPE, IS_XINSHOU, BIANHAO, MIN_INVEST, is_min_invest, IS_HONGBAO, 
+    MAX_HONGBAO, CONTRACT_NO, REVIEW_STATUS, CREATE_USER, CREATE_DATE, UPDATE_DATE, UPDATE_USER, 
+    REMARK, AUTOPAY, EXPIRED_INTEREST, FINISH_DATE, IS_CHANGE, CHANGE_DAY, DRM, CHANGE_RATE, 
+    HOUSING_TYPE, HOUSING_VALUE, PRIVINCE_CODE, CITY_CODE, HOUSE_AGE, Mortgage_rate, 
+    is_special, borrow_contractno, borrow_dept_realname, borrow_dept_idcard, IS_APP, 
+    BORROW_DESC, fullscale_time, items_id, is_pattern, borrow_pool_type, is_risk_grade, 
+    risk_grade, risk_explain, borrow_origin
+  </sql>
+
+   <!-- 通过borrowID查询标的信息 -->
+  <select id="selectBorrowInfoById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	SELECT 
+  	<include refid="Base_Column_List" />
+  	FROM borrow_info WHERE 
+  	(ID=#{borrowid});
+  </select>
+
+</mapper>
